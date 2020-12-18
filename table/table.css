@@ -1,0 +1,45 @@
+body {
+  background: Cornsilk;
+  width: 100%;
+}
+
+:root {
+  --cell-horizontal-num: 20;
+  --cell-vertical-num: 10;
+  --cell-size: 10vh;
+  --user-x: 1;
+  --user-y: 1;
+}
+
+table,
+th,
+td {
+  table-layout: fixed;
+  border: none;
+  /* border-collapse: collapse; */
+  border-spacing: 0px;
+  margin: 0;
+  padding: 0;
+  left: 10px;
+}
+
+th {
+  display: none;
+}
+
+tr,
+td {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: #2196f3;
+  padding: 0;
+  margin: 0;
+  z-index: -1;
+}
+
+.avatar {
+  position: absolute;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  z-index: 1;
+}
