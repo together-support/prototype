@@ -63,7 +63,7 @@ function zoomIn(){
         animateAvatar();
         console.log(`cell size: ${newCellSize} horizotal cell num: ${cellNum} vertical cell num: ${cellNum/2}`);
     } else {
-        alert('reached minimum zoom');
+        alert(`you can't get any closer`);
     }
 }
 
@@ -80,7 +80,7 @@ if (zoomStage < 2){
         console.log(`cell size: ${newCellSize} horizotal cell num: ${cellNum} vertical cell num: ${cellNum/2}`);
 
     } else {
-        alert('reached maximum zoom');
+        alert(`you can't get any further away`);
     }
 }
 
