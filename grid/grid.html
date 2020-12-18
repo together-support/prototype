@@ -90,6 +90,7 @@ $(document).keydown(function(e){
  
     //e.which is set by jQuery for those browsers that do not normally support e.keyCode.
     var keyCode = e.keyCode || e.which;
+    const scrollSpeed = 500;
  
     if (keyCode == 38) 
  { 
@@ -98,6 +99,11 @@ $(document).keydown(function(e){
         if (userY < 1){
             userY = cellNum/2;    
              moveAvatar();
+
+            $('html, body').animate({
+            scrollTop: $(document).height()
+            }, scrollSpeed);
+
         }else {
              animateAvatar();
         }
@@ -110,6 +116,11 @@ $(document).keydown(function(e){
         if (userY > cellNum/2){
             userY = 1;    
             moveAvatar();
+
+            $('html, body').animate({
+            scrollTop: 0
+            }, scrollSpeed);
+
         }else {
              animateAvatar();
         }
@@ -123,6 +134,11 @@ $(document).keydown(function(e){
         if (userX < 1){
             userX = cellNum;   
               moveAvatar();
+
+            $('html, body').animate({
+            scrollLeft: $(document).width()
+            }, scrollSpeed);
+
         } else {
              animateAvatar();
         }
@@ -136,6 +152,11 @@ $(document).keydown(function(e){
         if (userX > cellNum){
             userX = 1;   
              moveAvatar();
+
+            $('html, body').animate({
+            scrollLeft: 0
+            }, scrollSpeed);
+
         } else {
                animateAvatar();
         }
