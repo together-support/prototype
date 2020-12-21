@@ -19,7 +19,7 @@
 <div class="grid-container"> 
       
 <div class = "avatar" style= "background-color:FireBrick;"></div>
-<div class = "ghost"></div>
+<div class = "shadow"></div>
   
 </div>
 
@@ -48,7 +48,7 @@ let userX = parseInt(getComputedStyle(document.documentElement)
 let userY = parseInt(getComputedStyle(document.documentElement)
     .getPropertyValue('--user-y'));
 
-const ghost = document.querySelector('.ghost');
+const shadow = document.querySelector('.shadow');
 
 // zooming feature
 function zoomIn(){
@@ -167,20 +167,20 @@ $(document).keydown(function(e){
 });
 
 function animateAvatar(){
-    $('.ghost').css('grid-column-start', userX);
-    $('.ghost').css('grid-row-start', userY);
+    $('.shadow').css('grid-column-start', userX);
+    $('.shadow').css('grid-row-start', userY);
     $('.avatar').animate({    
-        'left': ghost.offsetLeft,
-        'top': ghost.offsetTop
+        'left': shadow.offsetLeft,
+        'top': shadow.offsetTop,
     });
 }
 
 function moveAvatar(){
-    $('.ghost').css('grid-column-start', userX);
-    $('.ghost').css('grid-row-start', userY);
+    $('.shadow').css('grid-column-start', userX);
+    $('.shadow').css('grid-row-start', userY);
     $('.avatar').css({    
-        'left': ghost.offsetLeft,
-        'top': ghost.offsetTop
+        'left': shadow.offsetLeft,
+        'top': shadow.offsetTop,
     });
 }
  

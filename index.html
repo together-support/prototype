@@ -18,7 +18,16 @@
             <li>Zoom in three sizes</li>
             <li>Avatar pops out from the opposite end when it goes beyond the edge. Feels useful especially when the number of cells increase.</li>
             <li>Using scrolltop & scrollleft to make the window follow the avatar when it goes off the edge.</li>
-            <li>The avatar moves around through the changing value of <i>grid-row-start</i>. Read online that in order to animate between cells, need to use something like the <a href="https://css-tricks.com/animating-layouts-with-the-flip-technique/">FLIP technique.</a> But actually found a work around that's simpler.</li>
+            <li>.shadow div changes position based on its order on the css grid (grid-column-start and grid-row-start). Then the .avatar div animates towards .shadow position through offsetTop and offsetLeft.</li>
+            <li>Will clean up the code if we go for this.</li>
+          </ul>
+        <li><a href="table/table.html">Table</a></li>
+            <ul>
+            Notes:
+            <li>Currently zoom in & out will add / delete rows. It's silly but there's no straightforward way to add / delete columns, although I'm sure it can be worked out if we decide to go with this.</li>
+            <li>Avatar pops out from the opposite end when it goes beyond the edge.</li>
+            <li>The table cells are recognizd as items in an array. Arranged in the order of left to right, top to down.</li>
+            <li>I used offsetTop and offsetLeft to get the values of the individual cells, and have the avatar animates towards the position.</li> 
             <li>Will clean up the code if we go for this.</li>
           </ul>
     </ol>

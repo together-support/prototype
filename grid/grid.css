@@ -27,7 +27,7 @@ body {
   text-align: center;
 }
 
-.ghost,
+.shadow,
 .avatar {
   width: var(--cell-size);
   height: var(--cell-size);
@@ -37,7 +37,7 @@ body {
   padding: 0;
 }
 
-.ghost {
+.shadow {
   position: relative;
   z-index: 0;
   border: 1px solid whitesmoke;

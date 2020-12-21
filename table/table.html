@@ -16,6 +16,7 @@
 
   <body>
 
+<div class = "main">
 <table id="stage">
   <tr>
     <th id="1">1</th>
@@ -29,55 +30,79 @@
     <td headers="3"></td>
     <td headers="4"></td>
     <td headers="5"></td>
-
     </tr>
-  <tr>
-      
+ 
+    <tr>     
     <td headers="6"></td>
     <td headers="7"></td>
     <td headers="8"></td>
-    <!-- <td headers="9"></td>
+    <td headers="9"></td>
     <td headers="10"></td>
+
+    </tr>
+    <tr>
     <td headers="11"></td>
     <td headers="12"></td>
     <td headers="13"></td>
     <td headers="14"></td>
     <td headers="15"></td>
+
+        </tr>
+    <tr>
     <td headers="16"></td>
     <td headers="17"></td>
     <td headers="18"></td>
     <td headers="19"></td>
-    <td headers="20"></td> -->
+    <td headers="20"></td>
   </tr>
 </table>
+</div>
 
-  <div class = "avatar" style= "background-color:FireBrick;"></div>
-
-<br>
+<div class="main">
+<div class = "avatar" style= "background-color:FireBrick;"></div>
+<div class = "shadow"></div>
 
 <button onclick="zoomIn()">Zoom In</button>
 <button onclick="zoomOut()">Zoom Out</button>
+</div>
+
 
 <script type="text/javascript">
 
+    let cell = 0;
+    let cellY = 0;
+    let cellHorizontalNum = 5;
+    let cellVerticalNum = 4;
+
+    let table = document.getElementById("stage"); 
+    let td = table.getElementsByTagName("td")[cell];
+    let destX = td.offsetLeft;
+    let destY = td.offsetTop;
+
+    function zoomOut(){
+      cellVerticalNum++;
+      let row = table.insertRow(cellVerticalNum);
+      for (let i = 0; i < cellHorizontalNum; i++){
+        row.insertCell(i);
+      }
+    }
+
+    function zoomIn(){
+      table.deleteRow(cellVerticalNum);
+      cellVerticalNum--;
+    }
+
 $(document).ready(function(){
 
-    // FLIP: First
-    let table = document.getElementById("stage"); 
-    let td = table.getElementsByTagName("td")[0];
-
-    console.log(td);
-
-    let userPos = td.getBoundingClientRect();
-    let userX = userPos.x;
-    let userY = userPos.y;
-    let cellX = 0;
-    let cellY = 0;
-    let cellHorizontalNum = 4;
-
+    // Set initial pos for avatar & shadow
     $('.avatar').css({
-        'left': userX,
-        'top' : userY
+        'left': destX,
+        'top' : destY
+    });
+
+    $('.shadow').css({
+        'left': destX,
+        'top' : destY
     });
 
      $(this).keydown(function(e) {
@@ -86,177 +111,81 @@ $(document).ready(function(){
  
     if (keyCode == 38) 
  { 
-        userY--;
-
-        if (userY < 1){
-            userY = cellNum/2;    
-        }
-
-        $('.avatar').css('grid-row-start', userY);
+      if (cell < cellHorizontalNum){
+        moveAvatar(cellHorizontalNum * (cellVerticalNum-1));
+      } else {
+        animateAvatar(-cellHorizontalNum);
+      }
     }
  
     if (keyCode == 40) 
  { 
-        userY++;
-
-        if (userY > cellNum/2){
-            userY = 1;    
-        }
-
-        $('.avatar').css('grid-row-start', userY);
+      if (cell >= cellHorizontalNum * cellVerticalNum - cellHorizontalNum){
+        moveAvatar(-(cellHorizontalNum * (cellVerticalNum-1)));
+      } else {
+        animateAvatar(cellHorizontalNum);
+      }
     }
  
     if (keyCode == 37) 
  { 
-        cellX--;
-
-        if (cellX < 0){
-            cellX = cellHorizontalNum;  
+        if (cell % cellHorizontalNum == 0){
+          moveAvatar(cellHorizontalNum - 1);
+        } else {
+          animateAvatar(-1);
         }
     }
  
     if (keyCode == 39) 
     {
-        cellX++;
-
-        if (cellX > cellHorizontalNum){
-        cellX = 0;
+        if ((cell+1) % cellHorizontalNum == 0){
+          moveAvatar(-(cellHorizontalNum - 1));
+        } else {
+          animateAvatar(1);
         }
     }
+    });
+});
 
-         // LAST
-        td = table.getElementsByTagName("td")[cellX];
+function animateAvatar(direction){
 
-        let destPos = td.getBoundingClientRect();
-        let destX = destPos.x;
-        let destY = destPos.y;
+        cell+=direction;
+
+        td = table.getElementsByTagName("td")[cell];
+
+        destX = td.offsetLeft;
+        destY = td.offsetTop;
+
+        $('.shadow').css({    
+        'left': destX,
+        'top': destY
+        });
 
         $('.avatar').animate({    
         'left': destX,
         'top': destY
         });
+}
 
-        userX = destX;
-        uesrY = destY;
+function moveAvatar(direction){
 
-        console.log(`cell x ${cellX}`);
-        console.log(`user x:${userX}, user y:${userY}`);
-        console.log(`dest x:${destX}, dest y:${destY}`);
+        cell+=direction;
 
-    });
-});
+        td = table.getElementsByTagName("td")[cell];
 
-// // zoom properties
-// let zoomStage = 0;
-// let zoomIncrement = 10;
+        destX = td.offsetLeft;
+        destY = td.offsetTop;
 
-// // cell properties
-// let cellNum = parseInt(getComputedStyle(document.documentElement)
-//     .getPropertyValue('--cell-horizontal-num'));
-// let oldCellSize = parseInt(getComputedStyle(document.documentElement)
-//     .getPropertyValue('--cell-size'), 10);
-// let newCellSize = parseInt(getComputedStyle(document.documentElement)
-//     .getPropertyValue('--cell-size'), 10);
+        $('.shadow').css({    
+        'left': destX,
+        'top': destY
+        });
 
-// // user pos
-// let userX = parseInt(getComputedStyle(document.documentElement)
-//     .getPropertyValue('--user-x'));
-// let userY = parseInt(getComputedStyle(document.documentElement)
-//     .getPropertyValue('--user-y'));
-
-// // zooming feature
-// function zoomIn(){
-//         if (zoomStage > 0){
-//         zoomStage--;
-//         newCellSize = newCellSize + (oldCellSize / 4);
-//         cellNum = cellNum - zoomIncrement;
-        
-//         document.documentElement.style.setProperty('--cell-horizontal-num', cellNum);
-//         document.documentElement.style.setProperty('--cell-vertical-num', cellNum/2);
-//         document.documentElement.style.setProperty('--cell-size', newCellSize+'vh');
-        
-//         console.log(`cell size: ${newCellSize} horizotal cell num: ${cellNum} vertical cell num: ${cellNum/2}`);
-//     } else {
-//         console.log('reached minimum zoom');
-//     }
-// }
-
-// function zoomOut(){
-// if (zoomStage < 2){
-//         zoomStage++;
-//         newCellSize = newCellSize - (oldCellSize / 4);
-//         cellNum = cellNum + zoomIncrement;
-
-//         document.documentElement.style.setProperty('--cell-horizontal-num', cellNum);
-//         document.documentElement.style.setProperty('--cell-vertical-num', cellNum/2);
-//         document.documentElement.style.setProperty('--cell-size', newCellSize+'vh');
-
-//         console.log(`cell size: ${newCellSize} horizotal cell num: ${cellNum} vertical cell num: ${cellNum/2}`);
-
-//     } else {
-//         console.log('reached maximum zoom');
-//     }
-// }
-
-// // user movement
-
-// $(document).keydown(function(e){
- 
-//  //e.which is set by jQuery for those browsers that do not normally support e.keyCode.
-//  var keyCode = e.keyCode || e.which;
- 
-//     if (keyCode == 38) 
-//  { 
-//         userY--;
-
-//         if (userY < 1){
-//             userY = cellNum/2;    
-//         }
-
-//         $('.avatar').css('grid-row-start', userY);
-//     }
- 
-//     if (keyCode == 40) 
-//  { 
-//         userY++;
-
-//         if (userY > cellNum/2){
-//             userY = 1;    
-//         }
-
-//         $('.avatar').css('grid-row-start', userY);
-//     }
- 
-//     if (keyCode == 37) 
-//  { 
-//         userX--;
-
-//         if (userX < 1){
-//             userX = cellNum;    
-//         }
-
-//         $('.avatar').css('grid-column-start', userX);
-//     }
- 
-//     if (keyCode == 39) 
-//     {
-
-//         userX++;
-
-//         if (userX > cellNum){
-//             userX = 1;    
-//         }
-
-//         $('.avatar').css('grid-column-start', userX);
-
-//         // $('.avatar').animate({    
-//         // 'grid-column-start': userX
-//         // });
-//     }
-
-//         console.log(`x:${userX}, y:${userY}`);
- 
-// });
+        $('.avatar').css({    
+        'left': destX,
+        'top': destY
+        });
+}
  
 </script> 
   </body>

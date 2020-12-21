@@ -11,16 +11,21 @@ body {
   --user-y: 1;
 }
 
+.main {
+  width: 100%;
+  position: absolute;
+  float: left;
+}
+
 table,
 th,
 td {
-  table-layout: fixed;
+  table-layout: auto;
   border: none;
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
   border-spacing: 0px;
   margin: 0;
   padding: 0;
-  left: 10px;
 }
 
 th {
@@ -34,12 +39,26 @@ td {
   background-color: #2196f3;
   padding: 0;
   margin: 0;
-  z-index: -1;
+  /* z-index: -1; */
+}
+
+.shadow,
+.avatar {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  grid-column-start: var(--user-x);
+  grid-row-start: var(--user-y);
+  margin: 0;
+  padding: 0;
+}
+
+.shadow {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid whitesmoke;
 }
 
 .avatar {
-  position: absolute;
-  width: var(--cell-size);
-  height: var(--cell-size);
+  position: relative;
   z-index: 1;
 }
