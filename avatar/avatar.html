@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UI Prototype</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="avatar.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+
+  </head>
+
+  <body>
+    
+    <h1>avatar</h1>
+
+    <h1>text records</h1>
+
+      <h2>text records</h2>
+    
+    <h2>Reveal Text Record UI Options (pick one)</h2>
+    
+    <h3> Option 1: Reveal text record when avatar enters the fuzzy zone.</h3>  
+
+        <button class = "textRecord" style = "background-color: DarkOliveGreen">
+    <div class = "textRecordRoundOverlay">
+    </div>
+    </button>
+    <p>☝ hover cursor over the text record</p>
+
+    <button class = "textRecord" style = "background-color: DarkOliveGreen">
+    <div class = "textRecordRoundOverlayTrigger">
+    </div>
+    </button>
+
+    <div class = "avatar moveLeft" style= "background-color:FireBrick; display: inline-block;">
+    <p>XI</p>
+    </div>
+
+<p>☝ refresh to watch avatar enters the fuzzy zone (single msg)</p>
+        <button class = "textRecord" style = "background-color: DarkOliveGreen; margin-top: 50px;">
+    </button>
+        <button class = "textRecord" style = "background-color: RosyBrown;margin-top: 50px;">
+    <div class = "textRecordRoundOverlayTrigger" style = "width: 350%; height: 350%">
+    </div>
+    </button>
+        <button class = "textRecord" style = "background-color: Orchid;margin-top: 50px;">
+    </button>
+        <div class = "avatar moveUp" style= "background-color:FireBrick;">
+    <p>XI</p>
+    </div>
+<p>☝ refresh to watch avatar enters the fuzzy zone (thread)</p>
+    <ul>
+        Notes:
+        <li>Blue circular highlighter visually indicates that the user is within the fuzzy zone.</li>
+        <li>When user is in the fuzzy zone, text record content automatically slides out from the right.</li>
+        <li>Under this condition user is able to start a thread / reply to this text record.</li>
+        <li>Text records can overlap on top of each other other?!</li>
+   </ul>
+
+       <h3>Option 2: Reveal text record when avatar is adjacent on one of the four sides.</h3>
+
+    <button class = "textRecord" style = "background-color: DarkOliveGreen">
+    <div class = "textRecordSquareOverlay">
+    </div>
+    </button>
+
+    <div class = "avatar moveLeft" style= "background-color:FireBrick">
+    <p>XI</p>
+    </div>
+<br>
+    <button class = "textRecord" style = "background-color: DarkOliveGreen; float: left; ">
+    <div class = "textRecordSquareOverlay">
+    </div>
+    </button>
+        <button class = "textRecord" style = "background-color: RosyBrown; float: left;">
+    <div class = "textRecordSquareOverlay">
+    </div>
+    </button>
+        <button class = "textRecord" style = "background-color: Orchid;float: left;">
+    <div class = "textRecordSquareOverlay">
+    </div>
+    </button>
+
+        <div class = "avatar moveUp" style= "background-color:FireBrick;">
+    <p>XI</p>
+    </div>
+
+        <ul>
+        Notes:
+        <li>Blue square highlighter visually indicates that the user is adjacent to the text record.</li>
+        <li>Text record automatically slides out from the right.</li>
+        <li>User is able to start a thread / reply to this text record.</li>
+   </ul>
+
+    
+    <h1>audio records</h1>
+    <button class = "audioRecord" >
+    </button>
+
+    <h1>Accessible Color Picker</h1>
+
+    <input type="color" list="presets"></label>
+<datalist id="presets">
+  <option value="#D2691E">Chocolate</option>
+  <option value="#4B0082">Indigo</option>
+<option value="#191970">Midnight Blue</option>
+  <option value="#008B8B">Dark Cyan</option>
+  <option value="#F4A460">Sandy Brown</option>
+    <option value="#DC143C">Crimson</option>
+</datalist>
+    
+  </body>
