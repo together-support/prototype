@@ -1,3 +1,16 @@
+:root {
+  --default-font-size: 16px;
+  /* --bg-color: burlywood;
+  --overlay-color: black;
+  --overlay-opacity: 0.5;
+  --min-navbar-width: 200pt;
+  --cell-horizontal-num: 40;
+  --cell-vertical-num: 20;
+  --cell-size: 5vh; */
+  --avatar-w: 50px;
+  --avatar-h: 50px;
+}
+
 @font-face {
   font-family: nunito;
   src: url(../font/nunito/Nunito-SemiBold.ttf);
@@ -36,8 +49,8 @@ button,
 
 button.textRecord {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: var(--avatar-w);
+  height: var(--avatar-h);
   border: 0;
 }
 
@@ -70,30 +83,21 @@ button.textRecord {
   animation-fill-mode: forwards;
 }
 
-button.audioRecord {
-  background-color: RebeccaPurple;
-  width: 50px;
-  height: 50px;
-  /* border: none; */
-  cursor: pointer;
-}
-
-/* CSS for demo purposes only. Probably not usable */
-
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: var(--avatar-w);
+  height: var(--avatar-h);
 }
 
 .avatar p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0;
+  position: relative;
+  text-align: center;
+  padding-top: calc(var(--avatar-h) / 5);
   margin: 0;
+  color: black;
   opacity: 0.5;
 }
+
+/* CSS for demo purposes only. Probably not usable */
 
 @keyframes move-left {
   from {
@@ -164,4 +168,62 @@ button.audioRecord {
   animation-duration: 0.3s;
   animation-delay: 1.8s;
   animation-fill-mode: forwards;
+}
+
+/* peer connected animation */
+
+.connected {
+  border: 2px solid transparent;
+  animation-name: connected;
+  animation-duration: 3s;
+}
+
+@keyframes connected {
+  0% {
+    border-top-color: #0eb7da;
+  }
+
+  25% {
+    border-top-color: #0eb7da;
+    border-right-color: #0eb7da;
+  }
+
+  50% {
+    border-top-color: #0eb7da;
+    border-right-color: #0eb7da;
+    border-bottom-color: #0eb7da;
+  }
+
+  75% {
+    border-top-color: #0eb7da;
+    border-right-color: #0eb7da;
+    border-bottom-color: #0eb7da;
+    border-left-color: #0eb7da;
+  }
+
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* loading icon */
+
+svg {
+  position: relative;
+  margin: auto;
+}
+
+.rect {
+  fill: none;
+  stroke-width: 5px;
+  stroke: black;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 50%;
+  animation: movedash 1.5s forwards 0s infinite;
+}
+
+@keyframes movedash {
+  to {
+    stroke-dashoffset: 250%;
+  }
 }
