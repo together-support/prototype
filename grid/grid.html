@@ -16,7 +16,9 @@
 
   <body>
 
-    <div class="navbar">
+
+
+    <div class="navbar left">
         <div class="title">
             Togethernet
         </div>
@@ -25,7 +27,7 @@
         </div>
     </div>
 
-    <div class="chat"> 
+    <div class="chat left"> 
 
         <div class = "avatar" style= "background-color:FireBrick;"></div>
         <div class = "shadow"></div>
@@ -35,8 +37,10 @@
 <script type="text/javascript">
 
 // cell properties
-let cellNum = parseInt(getComputedStyle(document.documentElement)
+let cellNumX = parseInt(getComputedStyle(document.documentElement)
     .getPropertyValue('--cell-horizontal-num'));
+let cellNumY = parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--cell-vertical-num'));
 
 // user pos
 let avatarX = parseInt(getComputedStyle(document.documentElement)
@@ -57,7 +61,7 @@ $(document).keydown(function(e){
         avatarY--;
 
         if (avatarY < 1){
-            avatarY = cellNum/2;    
+            avatarY = cellNumY;    
             moveAvatar();
 
             $('html, body').animate({
@@ -72,7 +76,7 @@ $(document).keydown(function(e){
  { 
         avatarY++;
 
-        if (avatarY > cellNum/2){
+        if (avatarY > cellNumY){
             avatarY = 1;    
             moveAvatar();
 
@@ -88,8 +92,8 @@ $(document).keydown(function(e){
  { 
         avatarX--;
 
-        if (avatarX < 2){
-            avatarX = cellNum;   
+        if (avatarX < 1){
+            avatarX = cellNumX;   
             moveAvatar();
 
             $('html, body').animate({
@@ -105,7 +109,7 @@ $(document).keydown(function(e){
 
         avatarX++;
 
-        if (avatarX > cellNum){
+        if (avatarX > cellNumX){
             avatarX = 1;   
             moveAvatar();
 

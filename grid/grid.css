@@ -1,9 +1,11 @@
 :root {
-  --default-font-size: 16pt;
+  --default-font-size: 16px;
   --bg-color: burlywood;
+  --interface-gray: Grey;
+  --avatar-outline-color: whitesmoke;
   --overlay-color: black;
   --overlay-opacity: 0.5;
-  --min-navbar-width: 200pt;
+  --min-navbar-width: 17vw;
   --cell-horizontal-num: 40;
   --cell-vertical-num: 20;
   --cell-size: 5vh;
@@ -23,21 +25,25 @@
 }
 
 body {
-  width: 100%;
+  width: calc(
+    var(--min-navbar-width) + var(--cell-size) * var(--cell-horizontal-num)
+  );
   height: 100%;
+  font-size: var(--default-font-size);
+  background: black;
   margin: 0;
   padding: 0;
-  font-size: var(--default-font-size);
-  background: white;
+}
+
+.left {
+  float: left;
 }
 
 .navbar {
+  display: block;
   width: var(--min-navbar-width);
-  background-color: var(--overlay-color);
-  opacity: var(--overlay-opacity);
-  position: fixed;
-  top: 0;
-  height: 100%;
+  height: calc(var(--cell-size) * var(--cell-vertical-num));
+  background-color: var(--interface-gray);
   z-index: 3;
 }
 
@@ -62,7 +68,6 @@ body {
   display: inline-grid;
   grid-template-rows: repeat(var(--cell-vertical-num), var(--cell-size));
   grid-template-columns: repeat(var(--cell-horizontal-num), var(--cell-size));
-  margin-left: var(--min-navbar-width);
   background: var(--bg-color);
 }
 
@@ -79,11 +84,10 @@ body {
 .shadow {
   position: relative;
   z-index: 0;
-  outline: 1px solid whitesmoke;
+  outline: 1px solid var(--avatar-outline-color);
 }
 
 .avatar {
   position: absolute;
-  left: var(--min-navbar-width);
   z-index: 1;
 }
