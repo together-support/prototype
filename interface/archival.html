@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UI Prototype</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="interface.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+<div class ="container">
+
+    <div class="navbar left">
+    
+        <div class="title">
+            <p style ="display:inline-block; width: 62%;">Togethernet</p><p style ="display:inline-block; font-size: 18px; font-weight: normal; opacity: 0.7;"><a href="" title="Account settings">&#8964;</a></p>
+        </div>
+        <div class="venues"><p style ="display:inline-block; width: 60%;">Rooms</p><p style ="display:inline-block;"><a href="" title="Add a new room">&#65291;</a></p></div>
+
+
+       <div class="roomlink">
+
+       <p style ="opacity: var(--text-overlay-opacity);"><a href="" title="Ephemeral Channel">&#8983; sitting-at-the-park</a></p>
+
+       <div class="miniAvatarDisplay">
+        <div class="miniAvatar" style= "background-color:BlueViolet ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:aquamarine ;">
+        </div>
+        </div>
+        </div>
+
+
+       <div class="roomlink">
+
+       <p style ="opacity: var(--text-overlay-opacity);"><a href="" title="Ephemeral Channel">&#8983; convening-at-the-beach</a></p>
+
+       <div class="miniAvatarDisplay">
+        <div class="miniAvatar" style= "background-color:Fuchsia  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:MediumSeaGreen  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:RosyBrown  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:Tomato;">
+        </div>
+
+                <div class="miniAvatar" style= "background-color:Gold   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:CornflowerBlue   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:LightSalmon   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:Lavender ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:Fuchsia  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:MediumSeaGreen  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:RosyBrown  ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:Tomato;">
+        </div>
+
+                <div class="miniAvatar" style= "background-color:Gold   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:CornflowerBlue   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:LightSalmon   ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:Lavender ;">
+        </div>
+        </div>
+        </div>
+
+            <div class="venues"><p>Archive</p></div>
+        <div class="room">
+            
+                   <div class="roomlink">
+
+       <p><a href="" title="Archive Channel">&#9776;</a> speaking-on-the-stage</p>
+
+       <div class="miniAvatarDisplay">
+                <div class="miniAvatar" style= "background-color:burlywood ;">
+        </div>
+                <div class="miniAvatar" style= "background-color:greenyellow ;">
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+ 
+
+    <div class="navigation left"> 
+
+        <!-- <div class = "avatar" style= "background-color:BlueViolet ;"></div>
+        <div class = "shadow"></div> -->
+
+        <div class="archive-chat">
+            
+            <div class="archive-message">
+            <div class="message-name"><p>November 19, 2020</p></div>
+            <div class="message-name"><p>Participants: xin, Yaqing, Anonymous</p></div>
+            <br>
+            <div class="message-name"><p>Resources</p></div>
+          
+            <ol>
+            
+            <div class = "highlight">
+            <button class="message-menu archive-delete" style="border:none;" title="Delete">&#10754;</button>
+            <button class="message-menu invert-button" style ="opacity: 1; cursor:default;" title="Consentful gesture is on">C</button>
+            <button class="message-menu" title="Revoke archived message">M</button>
+
+                <li>1. Nam vel augue porta, sollicitudin erat et, mollis mi. <i>Anonymous</i>.</li>
+            </div>
+
+                 <div class = "highlight">
+            <button class="message-menu archive-delete" style="border:none;" title="Delete">&#10754;</button>
+            <button class="message-menu invert-button" style ="opacity: 1; cursor:default;" title="Consentful gesture is on">C</button>
+            <button class="message-menu" title="Revoke archived message">M</button>
+
+                <li>2. Aenean turpis odio, suscipit congue mi nec, posuere ullamcorper arcu. <i>Yaqing</i>.</li>
+            </div>
+                     <div class = "highlight">
+                <button class="message-menu archive-delete" style="border:none;" title="Delete">&#10754;</button>
+            <button class="message-menu invert-button" style ="opacity: 1; cursor:default;" title="Consentful gesture is on">C</button>
+            <button class="message-menu" title="Revoke archived message">M</button>
+
+                <li>3. Cras eget sapien bibendum, elementum neque quis, tempor dolor. <i>Anonymous</i>.</li>
+</div>
+            </ol>
+           
+        </div> 
+
+        </div>
+
+    </div>
+
+    <div class="input left">
+
+
+<div class="profile left">
+
+<input class ="colorPicker left" type="color" list="presets" title="Edit color"></label>
+<datalist id="presets">
+  <option value="#D2691E">Chocolate</option>
+  <option value="#4B0082">Indigo</option>
+<option value="#191970">Midnight Blue</option>
+  <option value="#008B8B">Dark Cyan</option>
+  <option value="#F4A460">Sandy Brown</option>
+    <option value="#DC143C">Crimson</option>
+</datalist>
+
+<div class='nameInput'>
+                
+     <p style ="display:inline-block; width: 60%; margin-left: var(--interface-default-margin);">Anonymous</p><p style ="display:inline-block;"><a style ="opacity: var(--text-overlay-opacity)" href="" title="Change editor">&#8964;</a></p>
+            
+</div>
+</div>
+        
+
+
+<div class="textInput left">
+    <p>Type your message here</p></div>
+    <button class ="icon left" title="Download HTML">D</button>
+    </div>
+</div>
+<script type="text/javascript">
+
+// cell properties
+let cellNumX = parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--cell-horizontal-num'));
+let cellNumY = parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--cell-vertical-num'));
+
+// user pos
+let avatarX = parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--avatar-x'));
+let avatarY = parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--avatar-y'));
+
+const shadow = document.querySelector('.shadow');
+
+// user movement
+$(document).keydown(function(e){
+ 
+    var keyCode = e.keyCode || e.which;
+    const scrollSpeed = 500;
+ 
+    if (keyCode == 38) 
+ { 
+        avatarY--;
+
+        if (avatarY < 1){
+            avatarY = cellNumY;    
+            moveAvatar();
+
+            $('html, body').animate({
+            scrollTop: $(document).height()
+            }, scrollSpeed);
+        } else {
+            animateAvatar();
+        }
+    }
+ 
+    if (keyCode == 40) 
+ { 
+        avatarY++;
+
+        if (avatarY > cellNumY){
+            avatarY = 1;    
+            moveAvatar();
+
+            $('html, body').animate({
+            scrollTop: 0
+            }, scrollSpeed);
+        } else {
+            animateAvatar();
+        }
+    }
+ 
+    if (keyCode == 37) 
+ { 
+        avatarX--;
+
+        if (avatarX < 1){
+            avatarX = cellNumX;   
+            moveAvatar();
+
+            $('html, body').animate({
+            scrollLeft: $(document).width()
+            }, scrollSpeed);
+        } else {
+            animateAvatar();
+        }
+    }
+ 
+    if (keyCode == 39) 
+    {
+
+        avatarX++;
+
+        if (avatarX > cellNumX){
+            avatarX = 1;   
+            moveAvatar();
+
+            $('html, body').animate({
+            scrollLeft: 0
+            }, scrollSpeed);
+        } else {
+            animateAvatar();
+        }
+    }
+
+    console.log(`x:${avatarX}, y:${avatarY}`);
+ 
+});
+
+function animateAvatar(){
+    $('.shadow').css('grid-column-start', avatarX);
+    $('.shadow').css('grid-row-start', avatarY);
+    $('.avatar').animate({    
+        'left': shadow.offsetLeft,
+        'top': shadow.offsetTop,
+    });
+}
+
+function moveAvatar(){
+    $('.shadow').css('grid-column-start', avatarX);
+    $('.shadow').css('grid-row-start', avatarY);
+    $('.avatar').css({    
+        'left': shadow.offsetLeft,
+        'top': shadow.offsetTop,
+    });
+}
+ 
+</script> 
+</body>

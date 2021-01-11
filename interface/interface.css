@@ -14,11 +14,13 @@
   --overlay-opacity: 0.6;
   --text-overlay-opacity: 0.7;
   --min-navbar-width: 18vw;
+  --cell-size: 2vw;
   --cell-horizontal-num: 39;
   --cell-vertical-num: 21;
+  --archive-cell-size: 4vw;
+  --archive-cell-horizontal-num: 10;
   --input-height: 2.5;
   --input-border-radius: 25px;
-  --cell-size: 2vw;
   --avatar-x: 1;
   --avatar-y: 1;
   --chat-width: 25vw;
@@ -132,14 +134,26 @@ body {
   padding-bottom: 5px;
 }
 
-.navigation {
+.navigation,
+.archive-navigation {
   display: inline-grid;
-  grid-template-rows: repeat(var(--cell-vertical-num), var(--cell-size));
-  grid-template-columns: repeat(var(--cell-horizontal-num), var(--cell-size));
   background: var(--navigation-bg-color);
   border-top: var(--interface-border);
   border-right: var(--interface-border);
   border-bottom: var(--interface-border);
+}
+
+.navigation {
+  grid-template-rows: repeat(var(--cell-vertical-num), var(--cell-size));
+  grid-template-columns: repeat(var(--cell-horizontal-num), var(--cell-size));
+}
+
+.archive-navigation {
+  grid-template-rows: repeat(var(--cell-vertical-num), var(--cell-size));
+  grid-template-columns: repeat(
+    calc(var(--cell-horizontal-num) / 2),
+    var(--cell-size)
+  );
 }
 
 .input {
@@ -260,6 +274,14 @@ a {
   padding: 0;
 }
 
+.chat,
+.archive-chat {
+  overflow: scroll;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 15;
+}
+
 .chat {
   position: absolute;
   width: calc(var(--chat-width));
@@ -269,7 +291,6 @@ a {
           (var(--input-height) * var(--cell-size) / 2)
       ) - (var(--interface-default-margin) * 2)
   );
-  overflow: scroll;
   padding-top: var(--interface-default-margin);
   padding-bottom: var(--interface-default-margin);
   margin-left: calc(
@@ -277,12 +298,22 @@ a {
       (var(--cell-size) * 0.5)
   );
   margin-top: calc(var(--cell-size) / 2);
+  border: var(--interface-border);
   border-radius: var(--interface-border-radius);
   text-align: left;
-  background-color: black;
-  border: var(--interface-border);
-  opacity: 0.8;
-  z-index: 15;
+}
+
+.archive-chat {
+  position: absolute;
+  width: inherit;
+  height: calc(
+    (var(--cell-vertical-num) * var(--cell-size)) -
+      var(--interface-default-margin) * 12
+  );
+  margin: 0;
+  padding-top: calc(var(--interface-default-margin) * 6);
+  padding-bottom: calc(var(--interface-default-margin) * 6);
+  text-align: left;
 }
 
 .agenda {
@@ -360,6 +391,12 @@ button.delete {
   padding-left: 5px;
 }
 
+button.archive-delete {
+  font: 14px nunito, monospace;
+  margin-top: -3px;
+  margin-right: 9%;
+}
+
 button.icon {
   background-color: transparent;
   width: calc(var(--cell-size) * 1.5);
@@ -379,12 +416,21 @@ button.icon {
   padding-right: calc(var(--interface-default-margin) * 2);
 }
 
-.message:hover {
+.archive-message {
+  width: calc(var(--cell-size) * var(--cell-horizontal-num));
+  padding-top: var(--interface-default-margin);
+  padding-bottom: var(--interface-default-margin);
+}
+
+.message:hover,
+.highlight:hover {
   background-color: var(--interface-highlight);
 }
 
 .message-name p,
 .chat p,
+.archive-chat p,
+.archive-chat li,
 .agenda p {
   display: inline-block;
   font: 16px nunito, monospace;
@@ -392,6 +438,18 @@ button.icon {
   margin: 0;
   padding: 0;
   z-index: 15;
+}
+
+.highlight {
+  width: 100%;
+  padding-top: var(--interface-default-margin);
+  padding-bottom: var(--interface-default-margin);
+}
+
+.archive-chat p,
+.archive-chat ol {
+  padding-left: calc(var(--interface-default-margin) * 8);
+  padding-right: calc(var(--interface-default-margin) * 8);
 }
 
 .message-name p {
