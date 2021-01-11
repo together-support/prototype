@@ -215,6 +215,7 @@ input[type="color"]::-webkit-color-swatch {
   padding: 0;
   border: 1px solid white;
   outline: none;
+  cursor: pointer;
 }
 
 .overlay {
@@ -284,6 +285,17 @@ a {
   z-index: 15;
 }
 
+.agenda {
+  background-color: var(--bg-color);
+  width: var(--chat-width);
+  padding-top: calc(var(--interface-default-margin) / 2);
+  padding-bottom: calc(var(--interface-default-margin) / 2);
+  padding-left: calc(var(--interface-default-margin) * 2);
+  opacity: 1;
+  border-bottom: var(--interface-border);
+  z-index: 15;
+}
+
 .message-name,
 .message-menu {
   margin-bottom: calc(var(--interface-default-margin) / 2);
@@ -297,12 +309,14 @@ a {
   height: var(--cell-size);
   margin-left: calc(var(--interface-default-margin) / 2);
   float: right;
+  border-radius: var(--interface-border-radius);
 }
 
 .vote,
 .gesture {
   height: var(--cell-size);
   margin-top: var(--interface-default-margin);
+  border-radius: var(--interface-border-radius);
 }
 
 .vote {
@@ -322,12 +336,12 @@ a {
 }
 
 button {
+  display: inline-block;
   font: 12px nunito, monospace;
   color: whitesmoke;
   text-align: center;
   line-height: 0;
   border: var(--interface-border);
-  border-radius: var(--interface-border-radius);
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -339,11 +353,23 @@ button:hover {
   opacity: 1;
 }
 
-.delete {
+button.delete {
   font: 14px nunito, monospace;
   margin-top: -3px;
   margin-right: -10px;
   padding-left: 5px;
+}
+
+button.icon {
+  background-color: transparent;
+  width: calc(var(--cell-size) * 1.5);
+  height: calc(var(--cell-size) * 1.5);
+  margin-top: calc(
+    (var(--cell-size) * var(--input-height) - var(--cell-size) * 1.5) / 2
+  );
+  margin-left: var(--interface-default-margin);
+  font: 25px nunito, monospace;
+  border-radius: var(--input-border-radius);
 }
 
 .message {
@@ -358,7 +384,8 @@ button:hover {
 }
 
 .message-name p,
-.chat p {
+.chat p,
+.agenda p {
   display: inline-block;
   font: 16px nunito, monospace;
   color: whitesmoke;
