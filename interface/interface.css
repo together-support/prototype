@@ -74,12 +74,14 @@ body {
   overflow: scroll;
 }
 
-.title {
+.title,
+.coc {
   width: inherit;
   height: auto;
 }
 
-.title {
+.coc {
+  padding-bottom: var(--interface-default-margin);
   border-bottom: var(--interface-border);
 }
 .profile {
@@ -91,6 +93,7 @@ body {
 }
 
 .title p,
+.coc p,
 .profile p,
 .venues p,
 .roomlink p,
@@ -105,8 +108,15 @@ body {
   font-family: nunito-bold;
 }
 
+.title p,
+.coc p {
+  padding-left: var(--interface-default-margin);
+  padding-right: var(--interface-default-margin);
+}
+
 .title p {
-  padding: var(--interface-default-margin);
+  padding-top: var(--interface-default-margin);
+  padding-bottom: var(--interface-default-margin);
 }
 
 .room {
@@ -274,8 +284,7 @@ a {
   padding: 0;
 }
 
-.chat,
-.archive-chat {
+.chat {
   overflow: scroll;
   background-color: black;
   opacity: 0.8;
