@@ -16,31 +16,13 @@
 
   <body>
 
-            <div class ="systemMsgBg">
-            
-
-            <div class="systemMsgContainer">
-            <p>Privacy Scenario: <b>&#8983; sitting-at-the-park</b></p>
-            <div id = "ephemera"></div>
-
-            <h6>In the ephemera channel, your conversations are encrypted by default. However your public IP address is exposed and it is possible for your geolocation and messages to be tracked. </h6>
-
-            <div class="system-option"><p>Sounds good to me, I'm ready to continue</p>
-            <button class ="consent" id="join">Join</button>
-            </div>
-            <div class="system-option"><p>Not sure, I'd like to learn more about the underlying protocol</p>
-            <button class ="consent" onclick="window.location.href='https://togethernet.app/';">More Info</button>
-            </div>
-        </div>
-        </div>
-
 <div class ="container">
 
     <div class="navbar left">
     
         <div class="title">
             <p style ="display:inline-block; width: 62%;">Togethernet</p>
-            <!-- <p style ="display:inline-block; font-size: 18px; font-weight: normal; opacity: 0.7;"><a href="" title="Account settings">&#8964;</a></p> -->
+            <p style ="display:inline-block; font-size: 18px; font-weight: normal; opacity: 0.7;"><a href="" title="Account settings">&#8964;</a></p>
         </div>
        
         <div class="coc">
@@ -229,31 +211,6 @@
     </div>
 </div>
 <script type="text/javascript">
-
-// system msg typewriter effect
-
-let i = 0;
-let ephemera1 = 'You and a friend are sitting in your usual corner of the park on a picnic blanket speaking among each other.'; /* The text */
-let speed = 50; /* The speed/duration of the effect in milliseconds */
-
-window.onload = function exampleFunction() { 
-  
-    typeWriter();
-}
-
-function typeWriter() {
-  if (i < ephemera1.length) {
-    document.getElementById("ephemera").innerHTML += ephemera1.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-
-// remove sys msg
-
-$("#join").click(function(){
-  $(".systemMsgBg").remove();
-});
 
 // cell properties
 let cellNumX = parseInt(getComputedStyle(document.documentElement)
